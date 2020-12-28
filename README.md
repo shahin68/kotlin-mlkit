@@ -1,2 +1,2 @@
 # kotlin-mlkit
-A Kotlin MLKit Demonstration
+A Kotlin ML Kit Demonstration
