@@ -17,7 +17,7 @@
         android:autoSizeTextType="uniform"
         android:gravity="center"
         android:paddingHorizontal="40dp"
-        android:text="Enter Your Card Details"
+        android:text="@string/home_text_title"
         android:textColor="@color/cyan_400"
         android:textSize="@dimen/home_text_title_size"
         android:textStyle="bold"
@@ -59,7 +59,7 @@
         android:gravity="center"
         android:foreground="?attr/selectableItemBackground"
         android:padding="@dimen/generic_margin_24dp"
-        android:text="Card Capture"
+        android:text="@string/home_action_text_card_capture"
         android:textSize="20sp"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
@@ -85,7 +85,7 @@
                     android:id="@+id/card_number_et"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="4111 1111 1111 1111"
+                    android:hint="@string/home_placeholder_card_number"
                     android:paddingStart="@dimen/generic_size_24dp"
                     android:paddingEnd="@dimen/generic_size_24dp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -107,7 +107,7 @@
                         android:id="@+id/expiry_date_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Expiry Date"
+                        android:hint="@string/home_placeholder_expiry_date"
                         android:inputType="date"
                         android:maxLength="5"
                         android:paddingStart="@dimen/generic_size_24dp"
@@ -124,7 +124,7 @@
                         android:id="@+id/cvv_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="CVV"
+                        android:hint="@string/home_placeholder_cvv"
                         android:paddingStart="@dimen/generic_size_24dp"
                         android:paddingEnd="@dimen/generic_size_24dp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -151,7 +151,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Card details are stored securely" />
+                    android:text="@string/home_text_card_details" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

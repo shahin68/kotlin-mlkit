@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">mlkit</string>
     <string name="file_name_pattern">yyyyMMdd_HHmmss</string>
+    <string name="home_placeholder_card_number">4111 1111 1111 1111</string>
+    <string name="home_placeholder_expiry_date">Expiry Date</string>
+    <string name="home_placeholder_cvv">CVV</string>
+    <string name="home_text_card_details">Card details are stored securely</string>
+    <string name="home_text_title">Enter Your Card Details</string>
+    <string name="home_action_text_card_capture">Card Capture</string>
 </resources>
