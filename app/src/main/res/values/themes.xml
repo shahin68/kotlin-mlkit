@@ -5,14 +5,14 @@
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorPrimaryDark">@color/black</item>
-        <item name="colorOnBackground">@color/black_transparent_15p</item>
+        <item name="colorPrimaryDark">@color/grey_600</item>
+        <item name="colorOnBackground">@color/blackTransparent10</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">?attr/colorPrimary</item>
         <item name="colorSecondaryVariant">?attr/colorPrimaryVariant</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <item name="colorOnSurface">@color/black_transparent_50p</item>
-        <item name="colorControlHighlight">@color/black_transparent_15p</item>
+        <item name="colorOnSecondary">@color/grey_600</item>
+        <item name="colorOnSurface">@color/blackTransparent35</item>
+        <item name="colorControlHighlight">@color/blackTransparent10</item>
         <!-- System Color. -->
         <item name="android:windowBackground">?attr/colorOnPrimary</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
@@ -24,5 +24,7 @@
         <item name="android:textColor">?attr/colorPrimaryDark</item>
         <item name="android:textSize">@dimen/generic_text_size</item>
         <item name="cardViewStyle">@style/CardView.Light</item>
+        <item name="autoCompleteTextViewStyle">@style/EditTextStyle</item>
+        <item name="textInputStyle">@style/EditTextStyle</item>
     </style>
 </resources>

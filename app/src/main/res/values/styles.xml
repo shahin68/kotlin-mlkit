@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="EditTextStyle" parent="Widget.AppCompat.Light.AutoCompleteTextView">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+        <item name="android:textSize">@dimen/generic_text_size</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxBackgroundMode">outline</item>
+
+        <item name="boxStrokeColor">@color/text_input_layout_selector</item>
+        <item name="boxBackgroundColor">?attr/colorOnPrimary</item>
+        <item name="boxStrokeErrorColor">@android:color/holo_red_light</item>
+
+        <item name="boxCornerRadiusBottomEnd">@dimen/text_input_layout_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/text_input_layout_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/text_input_layout_radius</item>
+        <item name="boxCornerRadiusTopStart">@dimen/text_input_layout_radius</item>
+
+        <item name="android:layout_height">@dimen/text_input_layout_height</item>
+
+        <item name="hintEnabled">false</item>
+
+        <item name="endIconMode">custom</item>
+    </style>
+
+    <style name="TextInputLayoutDropDownStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxBackgroundMode">outline</item>
+
+        <item name="boxStrokeColor">@color/text_input_layout_selector</item>
+        <item name="boxBackgroundColor">?attr/colorOnPrimary</item>
+        <item name="boxStrokeErrorColor">@android:color/holo_orange_dark</item>
+
+        <item name="boxCornerRadiusBottomEnd">@dimen/text_input_layout_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/text_input_layout_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/text_input_layout_radius</item>
+        <item name="boxCornerRadiusTopStart">@dimen/text_input_layout_radius</item>
+
+        <item name="android:layout_height">@dimen/text_input_layout_height</item>
+
+        <item name="hintEnabled">false</item>
+
+        <item name="endIconMode">dropdown_menu</item>
+        <item name="endIconTint">@android:color/holo_orange_dark</item>
+
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
+</resources>

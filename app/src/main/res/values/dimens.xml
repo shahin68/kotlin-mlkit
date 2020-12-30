@@ -9,4 +9,9 @@
     <dimen name="generic_text_size_title">28sp</dimen>
 
     <dimen name="generic_size_24dp">24dp</dimen>
+
+    <dimen name="text_input_layout_height">60dp</dimen>
+    <dimen name="text_input_layout_radius">30dp</dimen>
+    <dimen name="generic_margin_12dp">12dp</dimen>
+    <dimen name="home_text_title_size">34sp</dimen>
 </resources>
