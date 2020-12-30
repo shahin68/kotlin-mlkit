@@ -42,14 +42,23 @@
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_camera"
             app:tint="?attr/colorOnBackground" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/captured_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:visibility="invisible" />
     </FrameLayout>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/capture_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingVertical="@dimen/generic_margin_24dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="@dimen/generic_margin_24dp"
         android:text="Card Capture"
         android:textSize="20sp"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
@@ -58,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/capture_tv">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,11 +76,12 @@
             android:paddingHorizontal="@dimen/generic_margin_24dp">
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/card_number_l"
                 style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="@dimen/generic_margin_24dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/card_number_et"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -86,6 +96,7 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/expiry_date_l"
                     style="@style/TextInputLayoutDropDownStyle"
                     android:layout_width="0dp"
                     android:layout_marginEnd="@dimen/generic_margin_12dp"
@@ -97,6 +108,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="Expiry Date"
+                        android:inputType="date"
+                        android:maxLength="5"
                         android:paddingStart="@dimen/generic_size_24dp"
                         android:paddingEnd="@dimen/generic_size_24dp" />
                 </com.google.android.material.textfield.TextInputLayout>

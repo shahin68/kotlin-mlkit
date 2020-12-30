@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">mlkit</string>
+    <string name="file_name_pattern">yyyyMMdd_HHmmss</string>
 </resources>

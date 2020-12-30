@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="EditTextStyle" parent="Widget.AppCompat.Light.AutoCompleteTextView">
-        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textColor">?attr/colorPrimaryDark</item>
         <item name="android:textColorHint">@android:color/darker_gray</item>
         <item name="android:textSize">@dimen/generic_text_size</item>
         <item name="android:imeOptions">actionDone</item>

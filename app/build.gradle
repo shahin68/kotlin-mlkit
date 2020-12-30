@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
     id 'kotlin-android-extensions'
     id 'androidx.navigation.safeargs.kotlin'
     id 'com.google.gms.google-services'
@@ -12,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId "com.shahin.mlkit"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -20,6 +21,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        resValue ("string" , "file_provider", "${applicationId}.fileProvider")
     }
 
     buildTypes {
@@ -62,14 +65,15 @@ dependencies {
 
     // firebase & ml kit
     implementation platform('com.google.firebase:firebase-bom:26.2.0')
-    implementation('com.google.firebase:firebase-ml-vision:24.1.0')
-    //region refer to [https://firebase.google.com/support/release-notes/android#mlkit-self-serve-fixes]
-    implementation('com.google.android.gms:play-services-vision:20.1.1')
-    implementation('com.google.android.gms:play-services-vision-common:19.1.1')
+    implementation 'com.google.android.gms:play-services-mlkit-text-recognition:16.1.2'
     //endregion
 
-    // Coil Image Loading Library
-    implementation('io.coil-kt:coil:1.1.0')
+    // card recognizer library
+    implementation 'cards.pay:paycardsrecognizer:1.1.0'
+
+    // Glide Image Processing
+    implementation('com.github.bumptech.glide:glide:4.11.0')
+    kapt('com.github.bumptech.glide:compiler:4.11.0')
 
     // Kotlin Coroutines
     implementation('org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1')
