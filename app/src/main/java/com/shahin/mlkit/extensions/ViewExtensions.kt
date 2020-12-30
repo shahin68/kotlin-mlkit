@@ -9,6 +9,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.AutoCompleteTextView
+import com.shahin.mlkit.utils.CreditCardType
 
 fun View?.visible() {
     this?.visibility = View.VISIBLE
@@ -48,22 +49,22 @@ fun View?.visibleOrHide(show: Boolean) {
  * en Route 	2014 0000 0000 009
  * JCB 	3088 0000 0000 0009
  */
-fun AutoCompleteTextView.validateCard(block: (CardType) -> Unit) {
+fun AutoCompleteTextView.validateCard(block: (CreditCardType) -> Unit) {
     addTextChangedListener(
         object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
                 when {
                     s.isEmpty() -> {
-                        block.invoke(CardType.NON)
+                        block.invoke(CreditCardType.NON)
                     }
                     s.startsWith("4") -> {
-                        block.invoke(CardType.VISA)
+                        block.invoke(CreditCardType.VISA)
                     }
                     s.startsWith("55") -> {
-                        block.invoke(CardType.MASTER_CARD)
+                        block.invoke(CreditCardType.MASTER_CARD)
                     }
                     s.startsWith("34") -> {
-                        block.invoke(CardType.AE)
+                        block.invoke(CreditCardType.AE)
                     }
                 }
             }
@@ -75,13 +76,6 @@ fun AutoCompleteTextView.validateCard(block: (CardType) -> Unit) {
             }
         }
     )
-}
-
-enum class CardType{
-    VISA,
-    MASTER_CARD,
-    AE,
-    NON
 }
 
 fun AutoCompleteTextView.setDateValidator() {

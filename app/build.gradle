@@ -55,21 +55,25 @@ dependencies {
     implementation('androidx.appcompat:appcompat:1.2.0')
     implementation('com.google.android.material:material:1.2.1')
     implementation('androidx.constraintlayout:constraintlayout:2.0.4')
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation('androidx.legacy:legacy-support-v4:1.0.0')
+    implementation('androidx.lifecycle:lifecycle-livedata-ktx:2.2.0')
 
     // Test Apis
     testImplementation('junit:junit:4.+')
     androidTestImplementation('androidx.test.ext:junit:1.1.2')
     androidTestImplementation('androidx.test.espresso:espresso-core:3.3.0')
 
+    // CameraX core library using the camera2 implementation
+    def camerax_version = "1.0.0-rc01"
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-view:1.0.0-alpha20"
+    implementation "androidx.camera:camera-extensions:1.0.0-alpha20"
+
     // firebase & ml kit
     implementation platform('com.google.firebase:firebase-bom:26.2.0')
-    implementation 'com.google.android.gms:play-services-mlkit-text-recognition:16.1.2'
+    implementation('com.google.android.gms:play-services-mlkit-text-recognition:16.1.2')
     //endregion
-
-    // card recognizer library
-    implementation 'cards.pay:paycardsrecognizer:1.1.0'
 
     // Glide Image Processing
     implementation('com.github.bumptech.glide:glide:4.11.0')
