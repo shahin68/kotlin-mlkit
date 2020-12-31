@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.FileProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
 import com.shahin.mlkit.R
@@ -71,11 +72,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
 
         binding.captureView.setOnClickListener {
-            openPhotoCamera()
+            navigateToCamera()
         }
 
         binding.captureTv.setOnClickListener {
-
+            navigateToCamera()
         }
 
         binding.expiryDateL.setEndIconOnClickListener {
@@ -91,6 +92,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 CreditCardType.NON -> binding.cardNumberL.endIconDrawable = null
             }
         }
+    }
+
+    private fun navigateToCamera() {
+        findNavController().navigate(
+            HomeFragmentDirections.actionFragmentHomeToFragmentCamera()
+        )
     }
 
     private fun openDatePicker() {

@@ -10,5 +10,15 @@
         android:name="com.shahin.mlkit.ui.fragments.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_camera"
+            app:destination="@id/fragment_camera" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_camera"
+        android:name="com.shahin.mlkit.ui.fragments.camera.CameraFragment"
+        android:label="Camera"
+        tools:layout="@layout/fragment_camera" >
     </fragment>
 </navigation>
