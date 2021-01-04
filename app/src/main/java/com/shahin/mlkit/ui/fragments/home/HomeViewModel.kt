@@ -16,19 +16,7 @@ class HomeViewModel(
     private val mlkitRepository: MlkitRepository
 ) : ViewModel() {
 
-    private val _text: MutableLiveData<Text> = MutableLiveData()
-    val text: LiveData<Text> = _text
+    val text = mlkitRepository.text
 
-    fun analyzeImage(context: Context, file: File) {
-        viewModelScope.launch {
-            val result = mlkitRepository.runAnalyzer(context, file)
-            result.addOnSuccessListener {
-                Log.d("text-analyzer", "----->" + it)
-                _text.postValue(it)
-            }.addOnFailureListener { e ->
-
-            }
-        }
-    }
 
 }

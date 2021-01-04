@@ -50,8 +50,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.text.observe(viewLifecycleOwner) {
-            val resultText = it.text
-            for (block in it.textBlocks) {
+            if (it == null) {
+                return@observe
+            }
+            Glide.with(this)
+                .load(it.first)
+                .placeholder(R.drawable.ic_placeholder)
+                .downsample(DownsampleStrategy.AT_MOST)
+                .into(binding.capturedIv)
+            binding.capturedIv.visible()
+
+            val resultText = it.second.text
+            for (block in it.second.textBlocks) {
                 val blockText = block.text
                 val blockCornerPoints = block.cornerPoints
                 val blockFrame = block.boundingBox
@@ -95,9 +105,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun navigateToCamera() {
-        findNavController().navigate(
-            HomeFragmentDirections.actionFragmentHomeToFragmentCamera()
-        )
+        Permission(this, Manifest.permission.CAMERA).runOnGrant {
+            Permission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE).runOnGrant {
+                findNavController().navigate(
+                    HomeFragmentDirections.actionFragmentHomeToFragmentCamera()
+                )
+            }
+        }
     }
 
     private fun openDatePicker() {
@@ -125,66 +139,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.expiryDateEt.setText(sdf.format(calendar.time))
     }
 
-    private fun openPhotoCamera() {
-        Permission(this, Manifest.permission.CAMERA).runOnGrant {
-            Permission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE).runOnGrant {
-                Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { intent ->
-                    val photoFile: File? = try {
-                        createImageFile()
-                    } catch (ex: IOException) {
-                        null
-                    }
-                    photoFile?.also {
-                        currentFile = it
-                        val photoURI: Uri = FileProvider.getUriForFile(
-                            requireContext(),
-                            getString(R.string.file_provider),
-                            it
-                        )
-                        intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                        try {
-                            startActivityForResult(intent, GENERIC_CAMERA_REQUEST_CODE)
-                        } catch (e: ActivityNotFoundException) {
-                            e.printStackTrace()
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private fun createImageFile(): File? {
-        val storageDir: File =
-            requireActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES)!!
-        return File.createTempFile(
-            "temp_image",
-            ".jpg",
-            storageDir
-        )
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == GENERIC_CAMERA_REQUEST_CODE) {
-            if (resultCode != Activity.RESULT_OK) {
-                currentFile?.delete()
-                return
-            }
-
-            currentFile?.let {
-                Glide.with(this)
-                    .load(it)
-                    .placeholder(R.drawable.ic_placeholder)
-                    .downsample(DownsampleStrategy.AT_MOST)
-                    .into(binding.capturedIv)
-                binding.capturedIv.visible()
-                // run analyzer
-
-                lifecycleScope.launch {
-                    viewModel.analyzeImage(requireContext(), it)
-                }
-            }
-        }
-    }
 
 }
